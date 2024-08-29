@@ -1,0 +1,65 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  canvas {
+    display: block;
+  }
+  
+  .title {
+      font-family: 'Roboto', sans-serif; /* Apply the Google Font */
+      font-size: 48px; /* Large font size for the title */
+      text-align: center; /* Center the title */
+      color: rgb(63, 32, 185); /* White color for better visibility */
+      text-shadow: 2px 2px 4px #000000; /* Optional: Add a shadow for cool effect */
+    }
+  
+  
+  .bg-image {
+    position: fixed; /* Fixed position to cover the whole screen */
+    top: 0; /* Align top edge */
+    left: 0; /* Align left edge */
+    width: 100vw; /* Cover full viewport width */
+    height: 100vh; /* Cover full viewport height */
+    background-image: url('../../static/snare.png'); /* Your background image */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Cover the entire area */
+    opacity: 0.5; /* Adjust opacity */
+    z-index: -1; /* Ensure it's behind other content */
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the background */
+    padding: 20px;
+    color: #000; /* Text color */
+  }
+  
+  .hihat {
+    color: white;
+    position: absolute;
+    top: 28%;
+    right:170px;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+  }
+  .snare {
+    color: white;
+    position: absolute;
+    top: 35%;
+    right:170px;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+  }
+  .kick {
+    color: white;
+    position: absolute;
+    top: 42%;
+    right:170px;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+  }
