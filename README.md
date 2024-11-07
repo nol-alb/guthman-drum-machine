@@ -1,7 +1,6 @@
 ### Guthman Fair - Your Friend The Drum Machine
 
-A drum machine that is also a homie. Designed and developed to create an interactive demo of my thesis research into rhythm similarity and complexity metrics used to create the syllabus of an intelligent rhythm tutoring system.
-
+A drum machine that is also a homie. Designed and developed to create an interactive demo of my thesis research. The rhythm similarity and complexity metrics that were explored can be leveraged to build an intuitive drum jam machine. 
 
 ## The UI
 
