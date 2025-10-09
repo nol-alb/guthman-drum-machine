@@ -9,8 +9,8 @@ let textbox;
 let hhVolumeSend, kickVolumeSend, ohVolumeSend,snareVolumeSend; 
 let reverbKick, reverbHiHat, reverbSnare, reverbOh;
 let snrReverbSndCntrl, kickReverbSndCntrl, hihatReverbSndCntrl, ohReverbSndCntrl;
-let selectDrumPattern, buttonGiveRecommendation;
-
+let selectDrumPattern, buttonGiveRecommendation, clearAllButton;
+let inferDrumPattern, buttonInferRecommendation, buttonInferAntiRecommendation;
 let mrNoisy, playButton, stopButton;
 let myRadio;
 

@@ -19,16 +19,20 @@ def manipulate_array():
     input_array = data.get('array', [])
     
     # Example manipulation: invert numbers in the array
-    modified_array = patternGens(input_array)
+    modified_array,modified_array2  = patternGens(input_array)
     
-    return jsonify({"id": array_id, "modifiedArray": modified_array})
+    return jsonify({"id": array_id, "modifiedArray": modified_array, "modifiedAntiModified":modified_array2})
 
 def patternGens(array=[]):
     N_pos,S_pos,O_pos,onsets,comb_of_beats,patterns = pGen.new_patterns(1/16, array)
+    print(N_pos,S_pos,O_pos)
+    # Convert N's to o's convert S's to N's and O's to S's
+    N_pos,S_pos,O_pos,onsets,comb_of_beats,patternsanti = pGen.new_patternsanti(1/16, array)
+    print(N_pos,S_pos,O_pos)
     randIndex = random.randint(0,len(patterns)-1)
+    randIndexAnti = random.randint(0,len(patternsanti)-1)
 
-
-    return patterns[randIndex].tolist()
+    return patterns[randIndex].tolist(), patternsanti[randIndexAnti].tolist()
 
 if __name__ == '__main__':
     app.run(debug=True)

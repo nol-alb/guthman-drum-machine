@@ -9,7 +9,8 @@ let textbox;
 let hhVolumeSend, kickVolumeSend, ohVolumeSend,snareVolumeSend; 
 let reverbKick, reverbHiHat, reverbSnare, reverbOh;
 let snrReverbSndCntrl, kickReverbSndCntrl, hihatReverbSndCntrl, ohReverbSndCntrl;
-let selectDrumPattern, buttonGiveRecommendation;
+let selectDrumPattern, buttonGiveRecommendation, clearAllButton;
+let inferDrumPattern, buttonInferRecommendation, buttonInferAntiRecommendation;
 
 let mrNoisy, playButton, stopButton;
 let myRadio;
@@ -93,6 +94,13 @@ stopButton.position(510, 400);
 stopButton.size(100, 50)
 stopButton.style('background-color', 'red');
 stopButton.mousePressed(() => {playStop()});
+
+// Clear All button
+clearAllButton = createButton('Clear All');
+clearAllButton.position(370, 460);
+clearAllButton.size(100, 50);
+clearAllButton.style('background-color', '#ff6b6b');
+clearAllButton.mousePressed(() => {clearAllPatterns()});
   
 playButton = createButton('Start');
 playButton.size(100, 50)
@@ -118,7 +126,10 @@ playButton.mousePressed(() => {playStart()});
             buttonInferRecommendation.position(20, 120);
             buttonInferRecommendation.mousePressed(()=> {sendArrayInferToFlask()});
 
-  
+  buttonInferAntiRecommendation = createButton('Flip The Recommendation');
+  buttonInferAntiRecommendation.position(20, 150);
+  buttonInferAntiRecommendation.mousePressed(() => {sendArrayAntiInferToFlask()});
+
   let cnv = createCanvas(500, 150);
   cnv.position(180,180);
   cnv.mousePressed(canvasPressed);
@@ -383,6 +394,26 @@ function sendArrayInferToFlask() {
 
 }
 
+function sendArrayAntiInferToFlask() {
+  let selectedID = selectDrumPattern.value();  // Source pattern
+  let selectedArray = arrays[selectedID];
+
+  let selected2ID = inferDrumPattern.value();  // Target pattern
+
+  fetch('http://127.0.0.1:5000/manipulate_array', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({id: selected2ID, array: selectedArray}),
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Use the anti-modified array instead of the regular modified array
+    updateArrayInPlace(data.id, data.modifiedAntiModified);
+  })
+  .catch(error => console.error('Error:', error));
+}
 
 function updateArrayInPlace(id, newArray) {
   const originalArray = arrays[id];
@@ -397,6 +428,17 @@ function updateArrayInPlace(id, newArray) {
   // If you need to trigger updates or re-draw your UI, do it here
   drawMatrix();
   // updateDrumPatterns(); // If you have a function to re-initialize your drum patterns
+}
+
+function clearAllPatterns() {
+  // Reset all arrays to zeros
+  for (let key in arrays) {
+    for (let i = 0; i < arrays[key].length; i++) {
+      arrays[key][i] = 0;
+    }
+  }
+  // Redraw the matrix to show the cleared patterns
+  drawMatrix();
 }
 
 
