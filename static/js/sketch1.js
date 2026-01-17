@@ -97,7 +97,7 @@ stopButton.mousePressed(() => {playStop()});
 
 // Clear All button
 clearAllButton = createButton('Clear All');
-clearAllButton.position(370, 460);
+clearAllButton.position(230, 400);
 clearAllButton.size(100, 50);
 clearAllButton.style('background-color', '#ff6b6b');
 clearAllButton.mousePressed(() => {clearAllPatterns()});
@@ -108,27 +108,27 @@ playButton.style('background-color', 'green');
 playButton.position(370, 400);
 playButton.mousePressed(() => {playStart()});
   
-    selectDrumPattern = createSelect();
-    selectDrumPattern.position(20, 20);
-    for (let key in arrays) {
-                selectDrumPattern.option(key);
-            }
-        buttonGiveRecommendation = createButton('Generate a Recommendation');
-        buttonGiveRecommendation.position(20, 50);
-        buttonGiveRecommendation.mousePressed(()=> {sendArrayToFlask()});
+  //   selectDrumPattern = createSelect();
+  //   selectDrumPattern.position(20, 20);
+  //   for (let key in arrays) {
+  //               selectDrumPattern.option(key);
+  //           }
+  //       buttonGiveRecommendation = createButton('Generate a Recommendation');
+  //       buttonGiveRecommendation.position(20, 50);
+  //       buttonGiveRecommendation.mousePressed(()=> {sendArrayToFlask()});
 
-    inferDrumPattern = createSelect();
-    inferDrumPattern.position(20, 90);
-    for (let key in arrays) {
-                    inferDrumPattern.option(key);
-            }
-            buttonInferRecommendation = createButton('Chain the Recommendation');
-            buttonInferRecommendation.position(20, 120);
-            buttonInferRecommendation.mousePressed(()=> {sendArrayInferToFlask()});
+  //   inferDrumPattern = createSelect();
+  //   inferDrumPattern.position(20, 90);
+  //   for (let key in arrays) {
+  //                   inferDrumPattern.option(key);
+  //           }
+  //           buttonInferRecommendation = createButton('Chain the Recommendation');
+  //           buttonInferRecommendation.position(20, 120);
+  //           buttonInferRecommendation.mousePressed(()=> {sendArrayInferToFlask()});
 
-  buttonInferAntiRecommendation = createButton('Flip The Recommendation');
-  buttonInferAntiRecommendation.position(20, 150);
-  buttonInferAntiRecommendation.mousePressed(() => {sendArrayAntiInferToFlask()});
+  // buttonInferAntiRecommendation = createButton('Flip The Recommendation');
+  // buttonInferAntiRecommendation.position(20, 150);
+  // buttonInferAntiRecommendation.mousePressed(() => {sendArrayAntiInferToFlask()});
 
   let cnv = createCanvas(500, 150);
   cnv.position(180,180);
@@ -144,96 +144,96 @@ playButton.mousePressed(() => {playStart()});
   
   // Kick Settings
   
-  kickVolumeSend = createSlider(0, 1, 0.5, 0.01);
-  kickVolumeSend.position(850,260);
+ // kickVolumeSend = createSlider(0, 1, 0.5, 0.01);
+ // kickVolumeSend.position(850,260);
   
-  reverbKick = new p5.Reverb();
-  reverbKick.process(bass, 2, 0);
+  //reverbKick = new p5.Reverb();
+  //reverbKick.process(bass, 2, 0);
   
-  kickReverbSndCntrl = createSlider(0, 1, 0, 0.01);
-  kickReverbSndCntrl.position(680,260);
+  //kickReverbSndCntrl = createSlider(0, 1, 0, 0.01);
+  //kickReverbSndCntrl.position(680,260);
   
   // Open Hi Hat Settings
-  ohVolumeSend = createSlider(0, 1, 0.5, 0.01);
-  ohVolumeSend.position(850,300);
+  //ohVolumeSend = createSlider(0, 1, 0.5, 0.01);
+  //ohVolumeSend.position(850,300);
 
-  reverbOh = new p5.Reverb();
-  reverbOh.process(oh, 2, 0);
+  //reverbOh = new p5.Reverb();
+  //reverbOh.process(oh, 2, 0);
   
-  ohReverbSndCntrl = createSlider(0, 1, 0, 0.01);
-  ohReverbSndCntrl.position(680,300);
+ // ohReverbSndCntrl = createSlider(0, 1, 0, 0.01);
+ // ohReverbSndCntrl.position(680,300);
   
   // Snare Settings
-  snareVolumeSend = createSlider(0, 1, 0.5, 0.01);
-  snareVolumeSend.position(850,225);
+  //snareVolumeSend = createSlider(0, 1, 0.5, 0.01);
+  //snareVolumeSend.position(850,225);
   
-  reverbSnare = new p5.Reverb();
-  reverbSnare.process(clap, 2, 0);
+  //reverbSnare = new p5.Reverb();
+  //reverbSnare.process(clap, 2, 0);
   
-  snrReverbSndCntrl = createSlider(0, 1, 0, 0.01);
-  snrReverbSndCntrl.position(680,225);
+  //snrReverbSndCntrl = createSlider(0, 1, 0, 0.01);
+  //snrReverbSndCntrl.position(680,225);
   
   // hihat Settings
-  hhVolumeSend = createSlider(0, 1, 0.5, 0.01);
-  hhVolumeSend.position(850,190);
+  //hhVolumeSend = createSlider(0, 1, 0.5, 0.01);
+  //hhVolumeSend.position(850,190);
   
-  reverbHiHat = new p5.Reverb();
-  reverbHiHat.process(hh, 2, 0);
+  //reverbHiHat = new p5.Reverb();
+  //reverbHiHat.process(hh, 2, 0);
   
-  hihatReverbSndCntrl = createSlider(0, 1, 0, 0.01);
-  hihatReverbSndCntrl.position(680,190);
+  //hihatReverbSndCntrl = createSlider(0, 1, 0, 0.01);
+ // hihatReverbSndCntrl.position(680,190);
   
   
-  //Choosing samples 
+  // //Choosing samples 
   
-  chooseKick = createSelect();
-  chooseKick.position(120,260);
-  chooseKick.option('kik1','0');
-  chooseKick.option('kik2','1');
-  chooseKick.option('kik3','2');
-  chooseKick.option('kik4','3');
-  chooseKick.changed(function() {
-   bass = kicks[chooseKick.value()];
-  reverbKick.process(bass, 2, 0);
-    bass.setVolume(0.5);
-    console.log(chooseKick.value());
-  })
-  chooseOh = createSelect();
-  chooseOh.position(120,300);
-  chooseOh.option('oh1','0');
-  chooseOh.option('oh2','1');
-  chooseOh.option('oh3','2');
-  chooseOh.option('oh4','3');
-  chooseOh.changed(function() {
-   oh = ohs[chooseOh.value()];s
-  reverbOh.process(oh, 2, 0);
-    oh.setVolume(0.5);
-    console.log(chooseOh.value());
-  })
-  chooseSnare = createSelect();
-  chooseSnare.position(120,225);
-  chooseSnare.option('snr1','0');
-  chooseSnare.option('snr2','1');
-  chooseSnare.option('snr3','2');
-  chooseSnare.option('snr4','3');
-  chooseSnare.changed(function() {
-   clap = snr[chooseSnare.value()];
-     reverbSnare.process(clap, 2, 0);
-    clap.setVolume(0.5);
-    console.log(chooseSnare.value());
-  })
-  chooseHih = createSelect();
-  chooseHih.position(120,190);
-  chooseHih.option('hh1','0');
-  chooseHih.option('hh2','1');
-  chooseHih.option('hh3','2');
-  chooseHih.option('hh4','3');
-  chooseHih.changed(function() {
-   hh = his[chooseHih.value()];
-    reverbHiHat.process(hh, 2, 0);
-    hh.setVolume(0.5);
-    console.log(chooseHih.value());
-  })
+  // chooseKick = createSelect();
+  // //chooseKick.position(120,260);
+  // chooseKick.option('kik1','0');
+  // chooseKick.option('kik2','1');
+  // chooseKick.option('kik3','2');
+  // chooseKick.option('kik4','3');
+  // chooseKick.changed(function() {
+  //  bass = kicks[chooseKick.value()];
+  // reverbKick.process(bass, 2, 0);
+  //   bass.setVolume(0.5);
+  //   console.log(chooseKick.value());
+  // })
+  // chooseOh = createSelect();
+  // //chooseOh.position(120,300);
+  // chooseOh.option('oh1','0');
+  // chooseOh.option('oh2','1');
+  // chooseOh.option('oh3','2');
+  // chooseOh.option('oh4','3');
+  // chooseOh.changed(function() {
+  //  oh = ohs[chooseOh.value()];s
+  // reverbOh.process(oh, 2, 0);
+  //   oh.setVolume(0.5);
+  //   console.log(chooseOh.value());
+  // })
+  // chooseSnare = createSelect();
+  // //chooseSnare.position(120,225);
+  // chooseSnare.option('snr1','0');
+  // chooseSnare.option('snr2','1');
+  // chooseSnare.option('snr3','2');
+  // chooseSnare.option('snr4','3');
+  // chooseSnare.changed(function() {
+  //  clap = snr[chooseSnare.value()];
+  //    reverbSnare.process(clap, 2, 0);
+  //   clap.setVolume(0.5);
+  //   console.log(chooseSnare.value());
+  // })
+  // chooseHih = createSelect();
+  // //chooseHih.position(120,190);
+  // chooseHih.option('hh1','0');
+  // chooseHih.option('hh2','1');
+  // chooseHih.option('hh3','2');
+  // chooseHih.option('hh4','3');
+  // chooseHih.changed(function() {
+  //  hh = his[chooseHih.value()];
+  //   reverbHiHat.process(hh, 2, 0);
+  //   hh.setVolume(0.5);
+  //   console.log(chooseHih.value());
+  // })
   
   arrays['HiHat'] = [1,0,0,1,0,1,0,1,1,1,1,1,1,0,1,0]
   arrays['Clap'] =  [1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0]
@@ -251,11 +251,11 @@ playButton.mousePressed(() => {playStart()});
   
   
 
-  textbox = createInput('Reverb Send');
-  textbox.position(675, 150);
+  //textbox = createInput('Reverb Send');
+  //textbox.position(675, 150);
   
-  textbox = createInput('Mixer');
-  textbox.position(850, 150);
+  //textbox = createInput('Mixer');
+  //textbox.position(850, 150);
   
   //HiHat Part
   drums = new p5.Part(); 
@@ -279,7 +279,10 @@ playButton.mousePressed(() => {playStart()});
   // BPM control 
   bpmCNTRL = createSlider(30,600,85,1);
   bpmCNTRL.position(180, 330);
-  bpmCNTRL.input(() => {drums.setBPM(bpmCNTRL.value())});
+  bpmCNTRL.input(() => {
+    drums.setBPM(bpmCNTRL.value());
+    textbox.value(bpmCNTRL.value() + " bpm");
+  });
                        // drums2.setBPM(bpmCNTRL.value());
                        // drums3.setBPM(bpmCNTRL.value());
                        // drums4.setBPM(bpmCNTRL.value())});
@@ -293,7 +296,7 @@ playButton.mousePressed(() => {playStart()});
   textbox.position(330, 330);
   
   // Initial update of the textbox with the slider's default value
-  textbox.value(bpmCNTRL.value());
+  textbox.value(bpmCNTRL.value() +" bpm");
   drawMatrix();
 }
 function playStart(){
