@@ -529,26 +529,26 @@ function drawPlayHead(beatIndex) {
   rect((beatIndex-1)*(width-100)/beatLength + 100, 0, (width-100)/beatLength, height);
   
 }
-function draw() {
+// function draw() {
 
-  let kickVolume = kickVolumeSend.value();
-  bass.setVolume(kickVolume);
-  let ohVolume = ohVolumeSend.value();
-  oh.setVolume(ohVolume);
-  let hhVolume = hhVolumeSend.value();
-  hh.setVolume(hhVolume);
-  let snareVolume = snareVolumeSend.value();
-  clap.setVolume(snareVolume);
-  // Update the textbox with the slider's current value
-  textbox.value(bpmCNTRL.value() + " bpm");
-  let wetness = snrReverbSndCntrl.value();
-  reverbSnare.drywet(wetness);
-  let wetness2 = hihatReverbSndCntrl.value();
-  reverbHiHat.drywet(wetness2);
-  let wetness3 = kickReverbSndCntrl.value();
-  reverbKick.drywet(wetness3);
-  let wetness4 = ohReverbSndCntrl.value();
-  reverbOh.drywet(wetness4);
-}
+//   let kickVolume = kickVolumeSend.value();
+//   bass.setVolume(kickVolume);
+//   let ohVolume = ohVolumeSend.value();
+//   oh.setVolume(ohVolume);
+//   let hhVolume = hhVolumeSend.value();
+//   hh.setVolume(hhVolume);
+//   let snareVolume = snareVolumeSend.value();
+//   clap.setVolume(snareVolume);
+//   // Update the textbox with the slider's current value
+//   textbox.value(bpmCNTRL.value() + " bpm");
+//   let wetness = snrReverbSndCntrl.value();
+//   reverbSnare.drywet(wetness);
+//   let wetness2 = hihatReverbSndCntrl.value();
+//   reverbHiHat.drywet(wetness2);
+//   let wetness3 = kickReverbSndCntrl.value();
+//   reverbKick.drywet(wetness3);
+//   let wetness4 = ohReverbSndCntrl.value();
+//   reverbOh.drywet(wetness4);
+// }
 
  
